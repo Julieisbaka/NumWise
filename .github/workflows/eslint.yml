@@ -16,7 +16,7 @@ on:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
   schedule:
-    - cron: '28 19 * * 0'
+    - cron: '30 19 * * 0'
 
 jobs:
   eslint:

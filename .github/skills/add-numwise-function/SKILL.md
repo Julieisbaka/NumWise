@@ -1,11 +1,11 @@
 ---
-name: add-zmath-function
-description: Add a focused, performance-oriented numerical function to Zmath with strict TypeScript implementation, correctness and bounds tests, performance regression coverage, current-version changelog updates, and matching documentation. Use when adding a new standalone Zmath function.
+name: add-numwise-function
+description: Add a focused, performance-oriented numerical function to Numwise with strict TypeScript implementation, correctness and bounds tests, performance regression coverage, current-version changelog updates, and matching documentation. Use when adding a new standalone Numwise function.
 ---
 
-# Add a Zmath Function
+# Add a Numwise Function
 
-Use this workflow when adding a new standalone numerical function to Zmath.
+Use this workflow when adding a new standalone numerical function to Numwise.
 
 ## Goals and constraints
 
@@ -153,7 +153,7 @@ functionName(42);
 Describe the algorithm, complexity, allocation behavior, and any important accuracy guarantees.
 ```
 
-Use the package version from `package.json` for the initial `Version history` entry; do not bump it. Keep the entry limited to the fact that the function was added. Put the newest version first, followed by older entries. Add only later function behavior or algorithm changes as additional entries. Do not add test coverage, benchmark results, or other development activity to Version history.
+Use the package version from `package.json` for the initial `Version history` entry; do not bump it. If the package version has `-dev` suffix, use the base version without the `-dev` suffix. Keep the entry limited to the fact that the function was added. Put the newest version first, followed by older entries. Add only later function behavior or algorithm changes as additional entries. Do not add test coverage, benchmark results, or other development activity to Version history.
 
 ### 8. Update the changelog
 

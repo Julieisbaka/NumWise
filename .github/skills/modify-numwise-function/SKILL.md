@@ -1,16 +1,16 @@
 ---
-name: modify-zmath-function
-description: Modify an existing Zmath numerical function while preserving its public contract, adding regression coverage, documenting versioned behavior changes, updating the current changelog, and validating performance. Use when changing an existing standalone Zmath function.
+name: modify-numwise-function
+description: Modify an existing Numwise numerical function while preserving its public contract, adding regression coverage, documenting versioned behavior changes, updating the current changelog, and validating performance. Use when changing an existing standalone Numwise function.
 ---
 
-# Modify a Zmath Function
+# Modify a Numwise Function
 
-Use this workflow when changing an existing standalone function in Zmath.
+Use this workflow when changing an existing standalone function in Numwise.
 
 ## Goals and constraints
 
 - Preserve the existing public API unless the user explicitly requests a breaking change.
-- Keep the function standalone; do not introduce dependencies on other public Zmath functions without a clear reason.
+- Keep the function standalone; do not introduce dependencies on other public Numwise functions without a clear reason.
 - Prefer changes that improve measured speed, exactness, bounds handling, or correctness.
 - Use TypeScript and preserve the ESM/NodeNext configuration.
 - Do not bump the package version unless the user explicitly asks. The user manages releases.
@@ -89,9 +89,9 @@ Add or update the reusable version history:
 ```md
 ## Version history
 
-- **`ORIGINAL_VERSION`** — Added `functionName`.
 - **`CURRENT_PACKAGE_VERSION`** — Describe the specific behavior or algorithm change.
 - **`CURRENT_PACKAGE_VERSION`** — Describe any changed bounds, exactness, or fallback behavior.
+- **`ORIGINAL_VERSION`** — Added `functionName`.
 ```
 
 Add future entries at the top of `Version history` rather than creating a version-specific heading. A later change must use a version newer than the function’s original addition; if implementation details are part of the initial release, describe them in the original addition entry instead. Keep tests, benchmarks, and other development activity out of Version history. Make each change immediately understandable. Do not merely say “optimized” or “fixed”; state what changed and why.
