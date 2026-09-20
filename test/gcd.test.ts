@@ -14,6 +14,7 @@ expectEqual(gcd(144, 12), 12, "divisible values");
 expectEqual(gcd(4_294_967_295, 4_294_967_293), 1, "unsigned 32-bit fast-path boundary");
 expectEqual(gcd(4_294_967_296, 2), 2, "value above unsigned 32-bit fast path");
 expectEqual(gcd(6, Number.MAX_SAFE_INTEGER), 1, "large values");
+expectEqual(gcd(Number.MAX_SAFE_INTEGER, 2_305_843_009_213_693), 1, "large coprime values");
 expectEqual(gcd(Number.MAX_SAFE_INTEGER, 0), Number.MAX_SAFE_INTEGER, "safe boundary");
 
 expectRangeError(gcd, 1.5, 3);
@@ -22,6 +23,11 @@ expectRangeError(gcd, Number.POSITIVE_INFINITY, 3);
 expectRangeError(gcd, Number.MAX_SAFE_INTEGER + 1, 3);
 expectRangeError(gcd, 3, Number.MAX_SAFE_INTEGER + 1);
 
-expectPerformance(() => gcd(987654321, 123456789), 100_000, 500, "gcd");
+expectPerformance(
+	() => gcd(Number.MAX_SAFE_INTEGER, 2_305_843_009_213_693),
+	100_000,
+	500,
+	"gcd"
+);
 
 console.log("gcd tests passed");
