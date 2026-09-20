@@ -143,7 +143,7 @@ Describe invalid inputs and thrown errors.
 ## Examples
 
 ```ts
-import { functionName } from "zmath";
+import { functionName } from "numwise";
 
 functionName(42);
 ```
