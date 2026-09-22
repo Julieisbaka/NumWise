@@ -13,6 +13,10 @@ expectPrime(221, false);
 expectPrime(104728, false);
 expectPrime(104729, true);
 
+// The divisor table through 443 is complete below 449 squared.
+expectPrime(201600, false);
+expectPrime(201601, false);
+
 // False bounds: below the lower bound and above the safe-integer upper bound.
 expectPrime(1, false);
 expectPrime(Number.MAX_SAFE_INTEGER + 1, false);

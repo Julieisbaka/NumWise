@@ -2,6 +2,9 @@
 
 ## Version history
 
+- **`0.2.5`** — Extends the exact trial-division path through `201,600`, the
+ largest value fully covered by the bundled prime divisors through `443`,
+ before switching to deterministic Miller–Rabin.
 - **`0.2.3`** — Uses exact small-prime trial division for candidates through
  `200,000`, avoiding modular exponentiation for small values while retaining
  deterministic Miller-Rabin for larger candidates.
@@ -48,7 +51,7 @@ The function returns `false` for:
 ## Algorithm and accuracy
 
 `isPrime` uses a small-candidate prime-table trial-division path through
-`200,000` and deterministic Miller–Rabin for larger values. Candidates below
+`201,600` and deterministic Miller–Rabin for larger values. Candidates below
 `341,550,071,728,321` use the smallest proven base set for their range, drawn
 from the prefixes of `[2, 3, 5, 7, 11, 13, 17]`. Larger candidates use the
 proven seven-witness set `[2, 325, 9375, 28178, 450775, 9780504, 1795265022]`.

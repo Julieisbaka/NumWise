@@ -3,6 +3,9 @@
 ## [0.2.5] - In development
 
 - Reverted changelog schema change from `0.2.4`.
+- Extended `isPrime`'s exact trial-division path through `201,600`, the
+ highest value covered by its bundled divisors through `443`, before using
+ deterministic Miller–Rabin.
 
 ## [0.2.4]
 

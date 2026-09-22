@@ -3,7 +3,7 @@ import { MAX_NUMBER_MODULUS, modPowBigNumberExponent, modPowUnchecked } from "./
 /** Small divisors worth testing before entering Miller-Rabin. */
 const SMALL_PRIMES = [5, 7, 11, 13, 17] as const;
 /** Trial division is cheaper than modular exponentiation for small values. */
-const TRIAL_DIVISION_LIMIT = 200_000;
+const TRIAL_DIVISION_LIMIT = 201_600;
 /** Prime divisors needed to trial-divide every value through the limit. */
 const SMALL_TRIAL_PRIMES = [
     19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83,
