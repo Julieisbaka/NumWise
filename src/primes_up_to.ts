@@ -34,12 +34,13 @@ export function primesUpTo(limit: number): number[] {
         const segment = new Uint8Array(segmentLength);
 
         for (const prime of basePrimes) {
-            if (prime * prime > segmentEnd) {
+            const primeSquare = prime * prime;
+            if (primeSquare > segmentEnd) {
                 break;
             }
 
             /** First odd multiple of this prime inside the current segment. */
-            let multiple = prime * prime;
+            let multiple = primeSquare;
             if (multiple < segmentStart) {
                 const remainder = segmentStart % prime;
                 multiple = remainder === 0 ? segmentStart : segmentStart + prime - remainder;
@@ -78,9 +79,10 @@ function oddSieve(limit: number): number[] {
         }
 
         const prime = (index << 1) + 3;
+        const primeSquare = prime * prime;
         primes.push(prime);
-        if (prime * prime <= limit) {
-            for (let multiple = (prime * prime - 3) >> 1; multiple < composite.length; multiple += prime) {
+        if (primeSquare <= limit) {
+            for (let multiple = (primeSquare - 3) >> 1; multiple < composite.length; multiple += prime) {
                 composite[multiple] = 1;
             }
         }

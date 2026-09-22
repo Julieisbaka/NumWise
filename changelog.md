@@ -10,6 +10,8 @@
  `201,600` trial-division boundary instead of the estimated `1,000,000` value.
 - Reused cached square and cube values during `integerNthRoot` cube-root
  correction, avoiding repeated cube multiplications while preserving exactness.
+- Reused each base prime's square within `primesUpTo` sieve loops, avoiding
+  duplicate multiplication in the marking hot paths.
 
 ## [0.2.4]
 
