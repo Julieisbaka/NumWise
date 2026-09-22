@@ -18,6 +18,8 @@
  exit.
 - Skipped redundant GCD and multiplication work in `lcmMany` for units and
  divisibility cases.
+- Reduced Miller–Rabin overhead in `isPrime` by caching `value - 1`, reusing
+ BigInt witness constants, and removing unreachable witness-bound checks.
 - Reused cached square and cube values during `integerNthRoot` cube-root
  correction, avoiding repeated cube multiplications while preserving exactness.
 - Reused each base prime's square within `primesUpTo` sieve loops, avoiding

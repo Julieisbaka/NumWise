@@ -2,6 +2,9 @@
 
 ## Version history
 
+- **`0.2.5`** — Removes unreachable witness-bound checks, caches the Number
+ `value - 1` residue, and reuses cached BigInt witness constants in the
+ Miller–Rabin hot paths.
 - **`0.2.5`** — Extends the exact trial-division path through `201,600`, the
  largest value fully covered by the bundled prime divisors through `443`,
  before switching to deterministic Miller–Rabin.
