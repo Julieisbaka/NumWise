@@ -2,7 +2,7 @@
 
 ## [0.2.4] - In development
 
-- Changed changelog schema, data is no longer included.
+- Changed changelog schema, date is no longer included.
 
 ## [0.2.3] - 2026-09-19
 
