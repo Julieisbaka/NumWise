@@ -11,6 +11,8 @@ const expectString = (actual: string, expected: string, label: string): void => 
 expectString(primeFactors(1).join(","), "", "one has no prime factors");
 expectString(primeFactors(360).join(","), "2,2,2,3,3,5", "repeated factors");
 expectString(primeFactors(97).join(","), "97", "prime input");
+expectString(primeFactors(201601).join(","), "449,449", "trial/primality boundary");
+expectString(primeFactors(300007).join(","), "300007", "direct-primality workload");
 expectString(primeFactors(1_000_003 * 1_000_033).join(","), "1000003,1000033", "Pollard Rho semiprime");
 
 // Every factorization must be prime, ascending, and multiply back exactly.

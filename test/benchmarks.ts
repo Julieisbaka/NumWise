@@ -70,6 +70,7 @@ const cases: readonly BenchmarkCase[] = [
     { name: "isPerfectSquare/perfect", iterations: 10_000, operation: () => isPerfectSquare(9_007_199_136_250_225), validate: expectBoolean(true) },
     { name: "isPerfectSquare/non-perfect", iterations: 10_000, operation: () => isPerfectSquare(Number.MAX_SAFE_INTEGER), validate: expectBoolean(false) },
     { name: "primeFactors/prime", iterations: 1_000, operation: () => primeFactors(982_451_653), validate: expectArray(1, 982_451_653) },
+    { name: "primeFactors/near-primality-bound", iterations: 2_000, operation: () => primeFactors(300_007), validate: expectArray(1, 300_007) },
     { name: "primeFactors/semiprime", iterations: 100, operation: () => primeFactors(1_000_003 * 1_000_033), validate: expectArray(2, 1_000_033) },
     { name: "primesUpTo/small", iterations: 100, operation: () => primesUpTo(100), validate: expectArray(25, 97) },
     { name: "primesUpTo/segment-boundary", iterations: 3, operation: () => primesUpTo(2_097_153), validate: expectArray(155_611, 2_097_143) }

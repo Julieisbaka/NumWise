@@ -6,6 +6,8 @@
 - Extended `isPrime`'s exact trial-division path through `201,600`, the
  highest value covered by its bundled divisors through `443`, before using
  deterministic Miller–Rabin.
+- Aligned `primeFactors`' direct-primality cutoff with `isPrime`'s exact
+ `201,600` trial-division boundary instead of the estimated `1,000,000` value.
 
 ## [0.2.4]
 

@@ -6,8 +6,8 @@ const SMALL_FACTORS = [2, 3, 5] as const;
 const WHEEL = [4, 2, 4, 2, 4, 6, 2, 6] as const;
 /** Trial division stops here; larger cofactors go to Pollard Rho. */
 const TRIAL_DIVISION_LIMIT = 1_000;
-/** Above this bound a primality test is cheaper than trial division. */
-const DIRECT_PRIMALITY_BOUND = 1_000_000;
+/** Above isPrime's exact trial-division boundary, test primality directly. */
+const DIRECT_PRIMALITY_BOUND = 201_600;
 /** Differences accumulated per batched Pollard Rho GCD. */
 const RHO_BATCH = 128n;
 
