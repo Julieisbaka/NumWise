@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.2.4] - In development
+## [0.2.4]
 
 - Changed changelog schema, date is no longer included.
 
