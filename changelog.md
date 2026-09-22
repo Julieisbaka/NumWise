@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.5] - In development
+
+- Reverted changelog schema change from `0.2.4`.
+
 ## [0.2.4]
 
 - Changed changelog schema, date is no longer included.
