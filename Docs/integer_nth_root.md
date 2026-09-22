@@ -4,6 +4,9 @@ Returns the exact integer floor of an n-th root.
 
 ## Version history
 
+- **`0.2.5`** — Reuses cached square and cube values with exact neighboring-
+ power identities during cube-root correction, avoiding repeated cube
+ multiplications.
 - **`0.2.2`** — Computes degree `3` entirely in `number` arithmetic, clamping
  the estimate to `208,063` so every correction cube stays exactly
  representable.

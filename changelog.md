@@ -8,6 +8,8 @@
  deterministic Miller–Rabin.
 - Aligned `primeFactors`' direct-primality cutoff with `isPrime`'s exact
  `201,600` trial-division boundary instead of the estimated `1,000,000` value.
+- Reused cached square and cube values during `integerNthRoot` cube-root
+ correction, avoiding repeated cube multiplications while preserving exactness.
 
 ## [0.2.4]
 

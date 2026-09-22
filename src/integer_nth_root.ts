@@ -89,11 +89,24 @@ function cubeRoot(value: number): number {
         root = MAX_CUBE_ROOT;
     }
 
-    while (root > 0 && root * root * root > value) {
+    /** Cached powers updated with exact neighboring-power identities. */
+    let square = root * root;
+    let cube = square * root;
+
+    while (root > 0 && cube > value) {
+        cube -= 3 * square - 3 * root + 1;
+        square -= 2 * root - 1;
         root--;
     }
 
-    while (root < MAX_CUBE_ROOT && (root + 1) * (root + 1) * (root + 1) <= value) {
+    while (root < MAX_CUBE_ROOT) {
+        const nextCube = cube + 3 * square + 3 * root + 1;
+        if (nextCube > value) {
+            break;
+        }
+
+        square += 2 * root + 1;
+        cube = nextCube;
         root++;
     }
 
