@@ -57,6 +57,13 @@ export function modPowUnchecked(
         base += modulus;
     }
 
+    if (base === 0 || base === 1) {
+        return base;
+    }
+    if (exponent === 1) {
+        return base;
+    }
+
     if (modulus > MAX_NUMBER_MODULUS) {
         return Number(modPowBigNumberExponent(BigInt(base), exponent, BigInt(modulus)));
     }

@@ -4,6 +4,8 @@ Returns the least common multiple of a collection of safe integers.
 
 ## Version history
 
+- **`0.2.5`** — Skips redundant GCD and multiplication work for unit values and
+ values already dividing the running LCM.
 - **`0.2.0`** — Added `lcmMany` with zero and overflow early exits.
 
 ## Signature

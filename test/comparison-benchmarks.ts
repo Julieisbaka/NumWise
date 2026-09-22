@@ -12,7 +12,7 @@ import bigInt from "big-integer";
 import { all, create } from "mathjs";
 
 type Result = number | boolean | number[];
-type Operation = () => Result;
+type Operation = (iteration: number) => Result;
 
 interface NumberTheoryApi {
     readonly gcd: (a: number, b: number) => number;
@@ -88,6 +88,13 @@ const checksum = (result: Result): number => {
     return result.length === 0 ? 0 : result.length + result[0] + result[result.length - 1];
 };
 
+const rotatingGcdInputs = [
+    [48, 18],
+    [84, 30],
+    [126, 60],
+    [210, 24]
+] as const;
+
 const cases: readonly Case[] = [
     {
         name: "gcd/large",
@@ -156,11 +163,26 @@ const cases: readonly Case[] = [
         iterations: 30_000,
         expected: 6,
         implementations: [
-            numwise("gcd", () => gcd(48, 18)),
-            competitor("number-theory gcd", () => numberTheory.gcd(48, 18)),
-            competitor("compute-gcd", () => computeGcd(48, 18)),
-            competitor("big-integer gcd", () => bigInt.gcd(48, 18).toJSNumber()),
-            competitor("mathjs gcd", () => math.gcd(48, 18))
+            numwise("gcd", (iteration) => {
+                const [left, right] = rotatingGcdInputs[iteration % rotatingGcdInputs.length];
+                return gcd(left, right);
+            }),
+            competitor("number-theory gcd", (iteration) => {
+                const [left, right] = rotatingGcdInputs[iteration % rotatingGcdInputs.length];
+                return numberTheory.gcd(left, right);
+            }),
+            competitor("compute-gcd", (iteration) => {
+                const [left, right] = rotatingGcdInputs[iteration % rotatingGcdInputs.length];
+                return computeGcd(left, right);
+            }),
+            competitor("big-integer gcd", (iteration) => {
+                const [left, right] = rotatingGcdInputs[iteration % rotatingGcdInputs.length];
+                return bigInt.gcd(left, right).toJSNumber();
+            }),
+            competitor("mathjs gcd", (iteration) => {
+                const [left, right] = rotatingGcdInputs[iteration % rotatingGcdInputs.length];
+                return math.gcd(left, right);
+            })
         ]
     },
     {
@@ -186,7 +208,7 @@ const shuffled = <T>(values: readonly T[], seed: number): T[] => {
 };
 
 const run = (implementation: Implementation, benchmarkCase: Case): { median: number; max: number; checksum: number } => {
-    let result = implementation.operation();
+    let result = implementation.operation(0);
     let consumed = checksum(result);
     if (!sameResult(result, benchmarkCase.expected)) {
         throw new Error(`${implementation.name} failed ${benchmarkCase.name} correctness check`);
@@ -194,8 +216,8 @@ const run = (implementation: Implementation, benchmarkCase: Case): { median: num
 
     for (let warmup = 0; warmup < warmups; warmup++) {
         for (let iteration = 0; iteration < benchmarkCase.iterations; iteration++) {
-            result = implementation.operation();
-            consumed = (consumed + checksum(result)) % 1_000_000_007;
+            result = implementation.operation(iteration);
+            consumed += checksum(result);
         }
     }
 
@@ -203,8 +225,8 @@ const run = (implementation: Implementation, benchmarkCase: Case): { median: num
     for (let sample = 0; sample < samples; sample++) {
         const start = performance.now();
         for (let iteration = 0; iteration < benchmarkCase.iterations; iteration++) {
-            result = implementation.operation();
-            consumed = (consumed + checksum(result)) % 1_000_000_007;
+            result = implementation.operation(iteration);
+            consumed += checksum(result);
         }
         timings.push(performance.now() - start);
     }

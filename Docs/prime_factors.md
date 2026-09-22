@@ -4,6 +4,8 @@ Returns the prime factorization of a positive safe integer.
 
 ## Version history
 
+- **`0.2.5`** — Avoids repeating the primality test for a large cofactor already
+ proven composite before Pollard Rho splitting.
 - **`0.2.5`** — Uses the exact `isPrime` trial-division boundary of `201,600`
  instead of the previous estimated `1,000,000` cutoff for direct primality
  testing.

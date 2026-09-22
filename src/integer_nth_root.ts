@@ -58,7 +58,7 @@ export function integerNthRoot(value: number, n: number): number {
 
     for (;;) {
         /** Bounded root^(degree - 1), used as Newton's denominator. */
-        const denominator = boundedPower(root, degree - 1n, target);
+        const denominator = boundedPower(root, n - 1, target);
         /** Next exact Newton iterate. */
         const next = ((degree - 1n) * root + target / denominator) / degree;
         if (next >= root) {
@@ -67,10 +67,10 @@ export function integerNthRoot(value: number, n: number): number {
         root = next;
     }
 
-    while (comparePower(root, degree, target) > 0) {
+    while (comparePower(root, n, target) > 0) {
         root--;
     }
-    while (comparePower(root + 1n, degree, target) <= 0) {
+    while (comparePower(root + 1n, n, target) <= 0) {
         root++;
     }
 
@@ -113,30 +113,30 @@ function cubeRoot(value: number): number {
     return root;
 }
 
-function boundedPower(base: bigint, exponent: bigint, limit: bigint): bigint {
+function boundedPower(base: bigint, exponent: number, limit: bigint): bigint {
     /** Accumulated power, capped once it exceeds the supplied limit. */
     let result = 1n;
-    for (let index = 0n; index < exponent; index++) {
-        if (result > limit / base) {
+    for (let index = 0; index < exponent; index++) {
+        result *= base;
+        if (result > limit) {
             return limit + 1n;
         }
-        result *= base;
     }
     return result;
 }
 
-function comparePower(base: bigint, exponent: bigint, target: bigint): number {
+function comparePower(base: bigint, exponent: number, target: bigint): number {
     /** Accumulated power used to compare against the target exactly. */
-    if (exponent === 0n) {
+    if (exponent === 0) {
         return target === 1n ? 0 : 1;
     }
 
     let result = 1n;
-    for (let index = 0n; index < exponent; index++) {
-        if (result > target / base) {
+    for (let index = 0; index < exponent; index++) {
+        result *= base;
+        if (result > target) {
             return 1;
         }
-        result *= base;
     }
 
     return result < target ? -1 : result > target ? 1 : 0;

@@ -9,14 +9,16 @@ export function gcdMany(values: readonly number[]): number {
     /** Additive identity used to seed the running GCD. */
     let result = 0;
 
-    for (const value of values) {
+    for (let index = 0; index < values.length; index++) {
+        const value = values[index];
         if (!Number.isSafeInteger(value)) {
             throw new RangeError(`gcdMany requires safe integers, received ${value}`);
         }
 
         result = gcdNonNegative(result, Math.abs(value));
         if (result === 1) {
-            for (const remaining of values) {
+            for (let remainingIndex = index + 1; remainingIndex < values.length; remainingIndex++) {
+                const remaining = values[remainingIndex];
                 if (!Number.isSafeInteger(remaining)) {
                     throw new RangeError(`gcdMany requires safe integers, received ${remaining}`);
                 }

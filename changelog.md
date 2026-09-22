@@ -8,6 +8,16 @@
  deterministic Miller–Rabin.
 - Aligned `primeFactors`' direct-primality cutoff with `isPrime`'s exact
  `201,600` trial-division boundary instead of the estimated `1,000,000` value.
+- Removed duplicate primality testing before Pollard Rho splitting in
+ `primeFactors` when the unchanged cofactor was already proven composite.
+- Reduced arbitrary-degree `integerNthRoot` BigInt helper overhead by using
+ Number loop counters and multiply-then-cap comparisons.
+- Added reduced-base fast paths to `modPow` for bases `0` and `1`, plus
+ exponent `1`.
+- Avoided rescanning validated prefixes in `gcdMany` after an early GCD-of-one
+ exit.
+- Skipped redundant GCD and multiplication work in `lcmMany` for units and
+ divisibility cases.
 - Reused cached square and cube values during `integerNthRoot` cube-root
  correction, avoiding repeated cube multiplications while preserving exactness.
 - Reused each base prime's square within `primesUpTo` sieve loops, avoiding

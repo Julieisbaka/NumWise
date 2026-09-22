@@ -28,6 +28,10 @@ export function lcmMany(values: readonly number[]): number {
 
         /** Non-negative value used by the GCD and multiplication steps. */
         const absoluteValue = Math.abs(value);
+        if (absoluteValue === 1 || result % absoluteValue === 0) {
+            continue;
+        }
+
         /** GCD used to reduce the next product before multiplication. */
         const divisor = gcdUnchecked(result, absoluteValue);
         /** Candidate LCM after reduction. */

@@ -23,9 +23,13 @@ export function primeFactors(value: number): number[] {
         throw new RangeError(`primeFactors requires a positive safe integer, received ${value}`);
     }
 
-    /** Large primes return directly after deterministic primality testing. */
-    if (value > DIRECT_PRIMALITY_BOUND && isPrime(value)) {
-        return [value];
+    /** Large inputs are classified once before factorization setup. */
+    let knownComposite = false;
+    if (value > DIRECT_PRIMALITY_BOUND) {
+        if (isPrime(value)) {
+            return [value];
+        }
+        knownComposite = true;
     }
 
     /** Trial division stays exact in Number arithmetic for safe integers. */
@@ -53,7 +57,11 @@ export function primeFactors(value: number): number[] {
     }
 
     if (remaining > 1) {
-        factorRecursive(remaining, factors);
+        if (knownComposite && remaining === value) {
+            splitComposite(remaining, factors);
+        } else {
+            factorRecursive(remaining, factors);
+        }
     }
 
     factors.sort((a, b) => a - b);
@@ -77,6 +85,11 @@ function factorRecursive(value: number, factors: number[]): void {
         return;
     }
 
+    splitComposite(value, factors);
+}
+
+/** Splits a value already known to be composite with Pollard Rho. */
+function splitComposite(value: number, factors: number[]): void {
     /** Non-trivial divisor returned by Pollard Rho. */
     const divisor = Number(pollardRho(BigInt(value)));
     factorRecursive(divisor, factors);

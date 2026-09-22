@@ -3,6 +3,9 @@ import { expectEqual, expectPerformance, expectRangeError } from "./helpers.js";
 
 expectEqual(modPow(2, 10, 1000), 24, "small exponent");
 expectEqual(modPow(3, 0, 7), 1, "zero exponent");
+expectEqual(modPow(0, 10, 7), 0, "zero base");
+expectEqual(modPow(1, Number.MAX_SAFE_INTEGER, 7), 1, "unit base");
+expectEqual(modPow(123, 1, 1000), 123, "unit exponent");
 expectEqual(modPow(-2, 3, 5), 2, "negative base");
 expectEqual(modPow(2, 32, 1_000_000_007), 294967268, "large modulus");
 expectEqual(modPow(2, 4_294_967_297, 7), 4, "large safe exponent");

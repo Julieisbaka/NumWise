@@ -4,6 +4,8 @@ Returns the greatest common divisor of a collection of safe integers.
 
 ## Version history
 
+- **`0.2.5`** — Validates only the unvisited suffix after an early GCD-of-one
+ exit instead of rescanning the already validated prefix.
 - **`0.2.0`** — Added `gcdMany` with validation-preserving early exits.
 
 ## Signature

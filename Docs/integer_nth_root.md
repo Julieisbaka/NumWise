@@ -4,6 +4,8 @@ Returns the exact integer floor of an n-th root.
 
 ## Version history
 
+- **`0.2.5`** — Uses Number loop counters and multiply-then-cap checks in
+ arbitrary-degree power comparisons, reducing BigInt division and counter work.
 - **`0.2.5`** — Reuses cached square and cube values with exact neighboring-
  power identities during cube-root correction, avoiding repeated cube
  multiplications.

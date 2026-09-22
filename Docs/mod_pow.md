@@ -2,6 +2,8 @@
 
 ## Version history
 
+- **`0.2.5`** — Returns immediately for reduced bases `0` and `1`, and for
+ exponent `1`, avoiding unnecessary squaring loops.
 - **`0.2.3`** — Keeps validated safe-integer exponents in `number` arithmetic
   while large-modulus residues remain in `BigInt`, avoiding BigInt parity tests
   and shifts without changing exactness.
