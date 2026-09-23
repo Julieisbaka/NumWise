@@ -5,7 +5,7 @@ Computes the number of ordered arrangements of `k` items selected from `n` items
 ## Version history
 
 - **`0.2.7`** — Returns `n` directly for one-selection requests, avoiding
-	loop setup for this common constant-time case.
+ loop setup for this common constant-time case.
 - **`0.1.3`** — Added `permutation`.
 
 ## Signature
