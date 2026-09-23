@@ -1,6 +1,10 @@
 # Changelog
 
-## [0.2.5] - In development
+## [0.2.6] - 2026-09-23
+
+- Fixed changelog issue
+
+## [0.2.5] - 2026-09-23
 
 - Reverted changelog schema change from `0.2.4`.
 - Extended `isPrime`'s exact trial-division path through `201,600`, the
