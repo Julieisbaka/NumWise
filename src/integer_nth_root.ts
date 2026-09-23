@@ -116,12 +116,28 @@ function cubeRoot(value: number): number {
 function boundedPower(base: bigint, exponent: number, limit: bigint): bigint {
     /** Accumulated power, capped once it exceeds the supplied limit. */
     let result = 1n;
-    for (let index = 0; index < exponent; index++) {
-        result *= base;
-        if (result > limit) {
-            return limit + 1n;
+    /** Current repeated-squaring factor. */
+    let factor = base;
+    /** Remaining exponent bits. */
+    let remaining = exponent;
+
+    while (remaining > 0) {
+        if (remaining % 2 === 1) {
+            result *= factor;
+            if (result > limit) {
+                return limit + 1n;
+            }
+        }
+
+        remaining = Math.floor(remaining / 2);
+        if (remaining > 0) {
+            factor *= factor;
+            if (factor > limit) {
+                factor = limit + 1n;
+            }
         }
     }
+
     return result;
 }
 
@@ -131,14 +147,7 @@ function comparePower(base: bigint, exponent: number, target: bigint): number {
         return target === 1n ? 0 : 1;
     }
 
-    let result = 1n;
-    for (let index = 0; index < exponent; index++) {
-        result *= base;
-        if (result > target) {
-            return 1;
-        }
-    }
-
+    const result = boundedPower(base, exponent, target);
     return result < target ? -1 : result > target ? 1 : 0;
 }
 
