@@ -12,6 +12,7 @@ expectEqual(lcm(Number.MAX_SAFE_INTEGER, 1), Number.MAX_SAFE_INTEGER, "unit seco
 expectEqual(lcm(-42, 42), 42, "equal absolute values");
 expectEqual(lcm(Number.MAX_SAFE_INTEGER, 1), Number.MAX_SAFE_INTEGER, "safe boundary");
 expectEqual(lcm(6, 24), 24, "divisible values");
+expectEqual(lcm(94_906_265, 94_906_264), 9_007_199_041_343_960, "large safe result");
 
 expectRangeError(lcm, 1.5, 3);
 expectRangeError(lcm, Number.NaN, 3);

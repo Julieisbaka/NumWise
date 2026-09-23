@@ -46,15 +46,10 @@ export function lcm(a: number, b: number): number {
         return a;
     }
 
-    /** GCD used to divide before multiplication and preserve exactness. */
+    /** GCD used to reduce one operand before multiplication. */
     const divisor = gcdUnchecked(a, b);
-    /**
-     * A bounded product can be multiplied first without losing exactness;
-     * this avoids an extra intermediate division on the common path.
-     */
-    const result = a <= MAX_SAFE_INTEGER / b
-        ? (a * b) / divisor
-        : (a / divisor) * b;
+    /** Exact division removes the need for a pre-multiplication bound check. */
+    const result = (a / divisor) * b;
 
     if (result > MAX_SAFE_INTEGER) {
         throw new RangeError("lcm result exceeds Number.MAX_SAFE_INTEGER");

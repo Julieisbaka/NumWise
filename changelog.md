@@ -8,6 +8,8 @@
   root estimate, reducing correction work while retaining exact BigInt checks.
 - Shared capped exponentiation by squaring between `integerNthRoot`'s Newton
   denominator and correction paths, reducing repeated BigInt multiplications.
+- Simplified `lcm`'s exact product path by dividing by the GCD before
+  multiplication and checking only the reduced product for safe overflow.
 
 ## [0.2.6] - 2026-09-23
 
