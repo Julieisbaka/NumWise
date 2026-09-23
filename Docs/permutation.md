@@ -4,6 +4,8 @@ Computes the number of ordered arrangements of `k` items selected from `n` items
 
 ## Version history
 
+- **`0.2.7`** — Returns `n` directly for one-selection requests, avoiding
+	loop setup for this common constant-time case.
 - **`0.1.3`** — Added `permutation`.
 
 ## Signature
@@ -46,4 +48,7 @@ permutation(5, 0); // 1
 
 ## Algorithm and performance
 
-The implementation accumulates the falling product directly, stopping with `RangeError` as soon as the result exceeds `Number.MAX_SAFE_INTEGER`. It uses $O(k)$ time and $O(1)$ additional space without factorials or intermediate arrays.
+The implementation returns `n` directly when `k` is `1`; otherwise, it
+accumulates the falling product directly, stopping with `RangeError` as soon as
+the result exceeds `Number.MAX_SAFE_INTEGER`. It uses $O(k)$ time and $O(1)$
+additional space without factorials or intermediate arrays.

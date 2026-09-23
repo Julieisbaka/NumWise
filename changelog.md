@@ -10,6 +10,8 @@
   denominator and correction paths, reducing repeated BigInt multiplications.
 - Simplified `lcm`'s exact product path by dividing by the GCD before
   multiplication and checking only the reduced product for safe overflow.
+- Returned `n` directly from `permutation` when `k` is `1`, avoiding loop setup
+  for the constant-time one-selection case.
 
 ## [0.2.6] - 2026-09-23
 

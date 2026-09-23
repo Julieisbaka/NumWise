@@ -16,6 +16,10 @@ export function permutation(n: number, k: number): number {
         );
     }
 
+    if (k === 1) {
+        return n;
+    }
+
     /** Running exact falling product. */
     let result = 1;
 

@@ -3,6 +3,7 @@ import { permutation } from "../src/permutation.js";
 
 expectEqual(permutation(5, 0), 1, "zero selections");
 expectEqual(permutation(5, 1), 5, "one selection");
+expectEqual(permutation(Number.MAX_SAFE_INTEGER, 1), Number.MAX_SAFE_INTEGER, "largest one selection");
 expectEqual(permutation(5, 2), 20, "small permutation");
 expectEqual(permutation(10, 3), 720, "ordered selection");
 expectEqual(permutation(30, 3), 24360, "large ordered selection");
