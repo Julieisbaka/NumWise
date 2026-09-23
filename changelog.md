@@ -2,6 +2,9 @@
 
 ## [0.2.7] - In development
 
+- Reused `gcdUnchecked` for `combination`'s overflow-safe factor cancellation,
+  removing duplicate Euclidean loops and sharing the optimized GCD path.
+
 ## [0.2.6] - 2026-09-23
 
 - Fixed changelog issue

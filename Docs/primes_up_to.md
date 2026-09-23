@@ -4,7 +4,7 @@ Returns every prime number less than or equal to a limit.
 
 ## Version history
 
-- **`0.2.5-dev`** — Reuses each base prime's square within sieve marking
+- **`0.2.5`** — Reuses each base prime's square within sieve marking
  instead of recalculating it in the same loop.
 - **`0.2.1`** — Raises the supported limit to `1_000_000_000` while keeping
  temporary sieve memory bounded by fixed-size segments.

@@ -1,3 +1,5 @@
+import { gcdUnchecked } from "./gcd.js";
+
 /** Largest exact result representable by the public Number API. */
 const MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER;
 
@@ -36,23 +38,11 @@ export function combination(n: number, k: number): number {
         }
 
         /** Cancel factors before multiplication to avoid needless overflow. */
-        let divisor = numerator;
-        let remainder = denominator;
-        while (remainder !== 0) {
-            const next = divisor % remainder;
-            divisor = remainder;
-            remainder = next;
-        }
+        let divisor = gcdUnchecked(numerator, denominator);
         numerator /= divisor;
         denominator /= divisor;
 
-        divisor = result;
-        remainder = denominator;
-        while (remainder !== 0) {
-            const next = divisor % remainder;
-            divisor = remainder;
-            remainder = next;
-        }
+        divisor = gcdUnchecked(result, denominator);
         result /= divisor;
         denominator /= divisor;
 

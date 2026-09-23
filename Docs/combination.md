@@ -2,6 +2,8 @@
 
 ## Version history
 
+- **`0.2.7`** — Reuses the optimized validated GCD core during factor
+ cancellation instead of maintaining duplicate Euclidean loops.
 - **`0.2.2`** — Uses the direct exact recurrence before entering factor
  cancellation, avoiding redundant GCD work for safely small intermediates.
 - **`0.1.5`** — Seeds the exact fallback from the already-computed prefix so overflow-safe results do not restart the multiplicative calculation.
