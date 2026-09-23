@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.2.7] - In development
+
 ## [0.2.6] - 2026-09-23
 
 - Fixed changelog issue
