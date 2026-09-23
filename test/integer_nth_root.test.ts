@@ -7,6 +7,7 @@ expectEqual(integerNthRoot(64, 3), 4, "perfect cube");
 expectEqual(integerNthRoot(65, 3), 4, "floored cube root");
 expectEqual(integerNthRoot(Number.MAX_SAFE_INTEGER, 2), 94_906_265, "large square root");
 expectEqual(integerNthRoot(Number.MAX_SAFE_INTEGER, 3), 208_063, "large cube root");
+expectEqual(integerNthRoot(Number.MAX_SAFE_INTEGER, 5), 1_552, "large fifth root");
 expectEqual(integerNthRoot(8, 1), 8, "degree one");
 expectEqual(integerNthRoot(81, 2), 9, "degree two");
 expectEqual(integerNthRoot(1_000, 3), 10, "degree three");
@@ -51,5 +52,6 @@ expectRangeError(integerNthRoot, 8, Number.POSITIVE_INFINITY);
 expectRangeError(integerNthRoot, Number.MAX_SAFE_INTEGER + 1, 2);
 
 expectPerformance(() => integerNthRoot(Number.MAX_SAFE_INTEGER, 3), 100_000, 1000, "integerNthRoot");
+expectPerformance(() => integerNthRoot(Number.MAX_SAFE_INTEGER, 5), 10_000, 1000, "integerNthRoot arbitrary degree");
 
 console.log("integerNthRoot tests passed");

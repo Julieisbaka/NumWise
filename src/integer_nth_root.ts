@@ -51,10 +51,10 @@ export function integerNthRoot(value: number, n: number): number {
     const target = BigInt(value);
     /** BigInt degree used to keep the iteration exact. */
     const degree = BigInt(n);
-    /** Initial power-of-two root estimate. */
-    const initialBits = Math.max(1, Math.ceil(Math.log2(value) / n));
+    /** Floating estimate keeps the exact Newton path close to its target. */
+    const initialRoot = Math.max(1, Math.floor(value ** (1 / n)));
     /** Current Newton iterate. */
-    let root = 1n << BigInt(initialBits);
+    let root = BigInt(initialRoot);
 
     for (;;) {
         /** Bounded root^(degree - 1), used as Newton's denominator. */

@@ -4,6 +4,9 @@ Returns the exact integer floor of an n-th root.
 
 ## Version history
 
+- **`0.2.7`** — Uses a floating-point root estimate to start arbitrary-
+ degree Newton iteration closer to the exact root while retaining exact BigInt
+ correction for rounding errors.
 - **`0.2.5`** — Uses Number loop counters and multiply-then-cap checks in
  arbitrary-degree power comparisons, reducing BigInt division and counter work.
 - **`0.2.5`** — Reuses cached square and cube values with exact neighboring-
@@ -58,7 +61,8 @@ exact `number` corrections. Because nested exact floor roots compose, any even
 degree reduces to a square root of a smaller problem and any multiple of three
 reduces to a cube root, so only degrees coprime to six reach the
 arbitrary-precision path. That path uses integer Newton iteration with bounded
-exact power comparisons, which correct floating-point estimate error and detect
-perfect powers without unsafe `number` multiplication. Degrees at least `53`
-use the exact safe-integer bound to return `1` directly. Auxiliary arithmetic
-uses constant space.
+exact power comparisons, starting from a `Math.pow` estimate and correcting
+any floating-point estimate error exactly. It detects perfect powers without
+unsafe `number` multiplication. Degrees at least `53` use the exact
+safe-integer bound to return `1` directly. Auxiliary arithmetic uses constant
+space.

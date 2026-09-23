@@ -4,6 +4,8 @@
 
 - Reused `gcdUnchecked` for `combination`'s overflow-safe factor cancellation,
   removing duplicate Euclidean loops and sharing the optimized GCD path.
+- Started arbitrary-degree `integerNthRoot` Newton iteration from a floating
+  root estimate, reducing correction work while retaining exact BigInt checks.
 
 ## [0.2.6] - 2026-09-23
 
