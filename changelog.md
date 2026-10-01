@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.2.8] - In development
+
 ## [0.2.7] - 2026-10-01
 
 - Reused `gcdUnchecked` for `combination`'s overflow-safe factor cancellation,
