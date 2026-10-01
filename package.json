@@ -44,7 +44,7 @@
         "eslint": "^10.0.0",
         "mathjs": "^15.2.0",
         "number-theory": "^1.1.0",
-        "typescript": "^6.0.3",
+        "typescript": "^7.0.2",
         "typescript-eslint": "^8.70.0"
     }
 }
