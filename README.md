@@ -53,7 +53,7 @@ table. `Max` is the slowest of seven samples. Package initialization is outside 
 | Implementation | Median | Max | Checksum |
 | --- | ---: | ---: | ---: |
 | number-theory isPrime | 3794.89 ms | 3903.23 ms | 20001 |
-| numwise isPrime | **0.62 ms** | **0.81 ms** | 20001 |
+| numwise isPrime | **0.62 ms** | 0.81 ms | 20001 |
 | mathjs isPrime | **0.62 ms** | **0.66 ms** | 20001 |
 | big-integer isPrime | 29.91 ms | 38.24 ms | 20001 |
 
@@ -88,12 +88,6 @@ table. `Max` is the slowest of seven samples. Package initialization is outside 
 | mathjs gcd | 537.10 ms | 593.48 ms | 1800006 |
 | number-theory gcd | 2.82 ms | 3.37 ms | 1800006 |
 | big-integer gcd | 19.54 ms | 19.89 ms | 1800006 |
-
-#### `combination/context` — 10,000 iterations
-
-| Implementation | Median | Max | Checksum |
-| --- | ---: | ---: | ---: |
-| numwise combination | **0.61 ms** | **0.80 ms** | 18475784756 |
 
 An asterisk marks an adapter that may return an inexact Number instead of
 rejecting an unrepresentable result. `big-integer` rows include conversion
