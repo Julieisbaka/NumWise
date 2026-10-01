@@ -2,6 +2,8 @@
 
 ## Version history
 
+- **`0.2.8`** — Uses indexed traversal for small-candidate trial divisors to
+  reduce iterator overhead without changing the exact divisor checks.
 - **`0.2.5`** — Removes unreachable witness-bound checks, caches the Number
  `value - 1` residue, and reuses cached BigInt witness constants in the
  Miller–Rabin hot paths.

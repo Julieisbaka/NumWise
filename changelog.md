@@ -2,6 +2,12 @@
 
 ## [0.2.8] - In development
 
+- Routed large `gcd` inputs directly to validated Euclidean reduction instead
+  of applying an inapplicable unsigned-32-bit guard, and simplified the core
+  Euclidean loop to remove redundant checks and modulo work.
+- Reduced `isPrime` trial-division overhead with indexed traversal of its
+  exact small-prime divisor table.
+
 ## [0.2.7] - 2026-10-01
 
 - Reused `gcdUnchecked` for `combination`'s overflow-safe factor cancellation,
