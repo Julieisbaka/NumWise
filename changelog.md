@@ -3,7 +3,7 @@
 ## [0.2.9] - In development
 
 - Added `npm run benchmark:readme` to regenerate the README comparison snapshot
-  from the current comparison benchmark results.
+  from the current comparison benchmark results. Also improved benchmark stuff.
 
 ## [0.2.8] - 2026-10-06
 
