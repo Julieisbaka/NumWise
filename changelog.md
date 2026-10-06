@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.2.9] - In development
+
 ## [0.2.8] - 2026-10-06
 
 - Routed large `gcd` inputs directly to validated Euclidean reduction instead
