@@ -28,6 +28,10 @@ if (tables.length !== cases.length + 2) {
     );
 }
 
+const comparisonCases = cases
+    .map((benchmarkCase, index) => ({ benchmarkCase, table: tables[index + 2] }))
+    .filter(({ table }) => table.split(/\r?\n/).length > 3);
+
 const date = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "long",
@@ -45,12 +49,12 @@ const snapshot = [
     "",
     tables[1],
     "",
-    ...cases.flatMap((benchmarkCase, index) => {
+    ...comparisonCases.flatMap(({ benchmarkCase, table }) => {
         const [, name, iterations] = benchmarkCase;
         return [
             `#### \`${name}\` — ${iterations} iterations`,
             "",
-            tables[index + 2],
+            table,
             ""
         ];
     }),

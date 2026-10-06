@@ -93,12 +93,6 @@ locally before making performance decisions.
 | number-theory gcd | 4.42 ms | 5.45 ms | 1800006 |
 | big-integer gcd | 35.35 ms | 37.57 ms | 1800006 |
 
-#### `combination/context` — 10000 iterations
-
-| Implementation | Median | Max | Checksum |
-| --- | ---: | ---: | ---: |
-| numwise combination | **0.98 ms** | **1.36 ms** | 18475784756 |
-
 An asterisk marks an adapter that may return an inexact Number instead of
 rejecting an unrepresentable result. `big-integer` rows include conversion
 from Number inputs and conversion back; `mathjs` rows include its normal
