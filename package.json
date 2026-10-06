@@ -40,11 +40,11 @@
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "@types/node": "^26.6.3",
-        "big-integer": "^1.6.52",
-        "compute-gcd": "^1.2.1",
+        "big-integer": "1.6.52",
+        "compute-gcd": "1.2.1",
         "eslint": "^10.0.0",
-        "mathjs": "^15.2.0",
-        "number-theory": "^1.1.0",
+        "mathjs": "15.2.0",
+        "number-theory": "1.1.0",
         "typescript": "^6.0.3",
         "typescript-eslint": "^8.70.0"
     }
