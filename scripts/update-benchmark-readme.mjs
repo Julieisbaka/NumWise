@@ -20,7 +20,7 @@ if (benchmark.status !== 0) {
 
 const tables = [...benchmark.stdout.matchAll(/Markdown:\r?\n((?:\|[^\r\n]*(?:\r?\n|$))+)/g)]
     .map((match) => match[1].trimEnd());
-const cases = [...benchmark.stdout.matchAll(/^([A-Za-z][A-Za-z0-9/]+) \(([0-9,]+) iterations\)$/gm)];
+const cases = [...benchmark.stdout.matchAll(/^([A-Za-z][A-Za-z0-9/-]+) \(([0-9,]+) iterations\)$/gm)];
 
 if (tables.length !== cases.length + 2) {
     throw new Error(
