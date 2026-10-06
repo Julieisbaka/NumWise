@@ -12,9 +12,12 @@ fairness rules, and interpretation guidance.
 ### Comparison snapshot
 
 <!-- comparison-benchmark:start -->
-The following results were measured on September 22, 2026. Times are elapsed
+The following results were measured on October 6, 2026. Times are elapsed
 milliseconds for the listed iteration count; lower is better within the same
-table. `Max` is the slowest of seven samples. Package initialization is outside the timed region. Results vary with hardware, Node.js/V8, thermal conditions, and background activity, so run `npm run benchmark:compare` locally before making performance decisions.
+table. `Max` is the slowest of seven samples. Package initialization is
+outside the timed region. Results vary with hardware, Node.js/V8, thermal
+conditions, and background activity, so run `npm run benchmark:compare`
+locally before making performance decisions.
 
 | Environment | Value |
 | --- | --- |
@@ -25,70 +28,76 @@ table. `Max` is the slowest of seven samples. Package initialization is outside 
 
 | Package | Version |
 | --- | ---: |
-| numwise | 0.2.5-dev |
+| numwise | 0.2.9-dev |
 | number-theory | 1.1.0 |
 | compute-gcd | 1.2.1 |
 | big-integer | 1.6.52 |
 | mathjs | 15.2.0 |
 
-#### `gcd/large` — 20,000 iterations
+#### `gcd/large` — 20000 iterations
 
 | Implementation | Median | Max | Checksum |
 | --- | ---: | ---: | ---: |
-| numwise gcd | 1.86 ms | 2.87 ms | 200001 |
-| number-theory gcd | **1.65 ms** | **1.95 ms** | 200001 |
-| compute-gcd | 18.24 ms | 18.81 ms | 200001 |
-| mathjs gcd | 1384.83 ms | 1407.91 ms | 200001 |
-| big-integer gcd | 52.98 ms | 55.74 ms | 200001 |
+| numwise gcd | **2.32 ms** | 3.12 ms | 200001 |
+| number-theory gcd | 2.35 ms | **2.66 ms** | 200001 |
+| compute-gcd | 27.60 ms | 33.11 ms | 200001 |
+| mathjs gcd | 942.10 ms | 1062.85 ms | 200001 |
+| big-integer gcd | 50.94 ms | 60.19 ms | 200001 |
 
-#### `lcm/safe-integer` — 20,000 iterations
-
-| Implementation | Median | Max | Checksum |
-| --- | ---: | ---: | ---: |
-| big-integer lcm* | 22.54 ms | 23.90 ms | 1.8014488154699787e+21 |
-| numwise lcm | **0.25 ms** | **0.34 ms** | 1.8014488154699787e+21 |
-| mathjs lcm* | 0.66 ms | 0.88 ms | 1.8014488154699787e+21 |
-
-#### `isPrime/medium` — 2,000 iterations
+#### `lcm/safe-integer` — 20000 iterations
 
 | Implementation | Median | Max | Checksum |
 | --- | ---: | ---: | ---: |
-| number-theory isPrime | 3794.89 ms | 3903.23 ms | 20001 |
-| numwise isPrime | **0.62 ms** | 0.81 ms | 20001 |
-| mathjs isPrime | **0.62 ms** | **0.66 ms** | 20001 |
-| big-integer isPrime | 29.91 ms | 38.24 ms | 20001 |
+| big-integer lcm* | 20.12 ms | 24.61 ms | 1.8014488154699787e+21 |
+| numwise lcm | **0.26 ms** | **0.37 ms** | 1.8014488154699787e+21 |
+| mathjs lcm* | 0.49 ms | 0.68 ms | 1.8014488154699787e+21 |
 
-#### `modPow/large` — 2,000 iterations
+#### `isPrime/medium` — 2000 iterations
 
 | Implementation | Median | Max | Checksum |
 | --- | ---: | ---: | ---: |
-| number-theory powerMod* | 5.67 ms | 6.06 ms | 16734892762803 |
-| big-integer modPow | 2.84 ms | 3.20 ms | 16734892762803 |
-| numwise modPow | **1.40 ms** | **1.71 ms** | 16734892762803 |
+| number-theory isPrime | 3011.28 ms | 3166.44 ms | 20001 |
+| numwise isPrime | **0.49 ms** | **0.53 ms** | 20001 |
+| mathjs isPrime | 0.53 ms | 0.55 ms | 20001 |
+| big-integer isPrime | 27.03 ms | 35.39 ms | 20001 |
+
+#### `modPow/large` — 2000 iterations
+
+| Implementation | Median | Max | Checksum |
+| --- | ---: | ---: | ---: |
+| number-theory powerMod* | 5.44 ms | 6.59 ms | 16734892762803 |
+| big-integer modPow | 2.53 ms | 3.27 ms | 16734892762803 |
+| numwise modPow | **1.41 ms** | **1.89 ms** | 16734892762803 |
 
 #### `primeFactors/semiprime` — 100 iterations
 
 | Implementation | Median | Max | Checksum |
 | --- | ---: | ---: | ---: |
-| number-theory primeFactors | 3022.69 ms | 3219.96 ms | 2010008 |
-| numwise primeFactors | **0.30 ms** | **0.37 ms** | 2010008 |
+| number-theory primeFactors | 3212.84 ms | 6825.26 ms | 2010008 |
+| numwise primeFactors | **0.54 ms** | **0.64 ms** | 2010008 |
 
 #### `primesUpTo/medium` — 20 iterations
 
 | Implementation | Median | Max | Checksum |
 | --- | ---: | ---: | ---: |
-| numwise primesUpTo | **5.78 ms** | **5.93 ms** | 22026585 |
-| number-theory sieve | 33.68 ms | 38.57 ms | 22026585 |
+| numwise primesUpTo | **10.47 ms** | **10.80 ms** | 22026585 |
+| number-theory sieve | 74.15 ms | 97.47 ms | 22026585 |
 
-#### `gcd/small` — 30,000 iterations
+#### `gcd/small` — 30000 iterations
 
 | Implementation | Median | Max | Checksum |
 | --- | ---: | ---: | ---: |
-| numwise gcd | **1.37 ms** | **1.91 ms** | 1800006 |
-| compute-gcd | 3.19 ms | 3.45 ms | 1800006 |
-| mathjs gcd | 537.10 ms | 593.48 ms | 1800006 |
-| number-theory gcd | 2.82 ms | 3.37 ms | 1800006 |
-| big-integer gcd | 19.54 ms | 19.89 ms | 1800006 |
+| numwise gcd | **2.26 ms** | **2.59 ms** | 1800006 |
+| compute-gcd | 5.10 ms | 5.66 ms | 1800006 |
+| mathjs gcd | 998.28 ms | 1086.74 ms | 1800006 |
+| number-theory gcd | 4.42 ms | 5.45 ms | 1800006 |
+| big-integer gcd | 35.35 ms | 37.57 ms | 1800006 |
+
+#### `combination/context` — 10000 iterations
+
+| Implementation | Median | Max | Checksum |
+| --- | ---: | ---: | ---: |
+| numwise combination | **0.98 ms** | **1.36 ms** | 18475784756 |
 
 An asterisk marks an adapter that may return an inexact Number instead of
 rejecting an unrepresentable result. `big-integer` rows include conversion
