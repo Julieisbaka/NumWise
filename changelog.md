@@ -2,6 +2,9 @@
 
 ## [0.2.9] - In development
 
+- Added `npm run benchmark:readme` to regenerate the README comparison snapshot
+  from the current comparison benchmark results.
+
 ## [0.2.8] - 2026-10-06
 
 - Routed large `gcd` inputs directly to validated Euclidean reduction instead

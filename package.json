@@ -34,7 +34,8 @@
         "prepack": "npm run build",
         "test": "npm run build && node dist/test/run.test.js",
         "benchmark": "npm run build && node dist/test/benchmarks.js",
-        "benchmark:compare": "npm run build && node dist/test/comparison-benchmarks.js"
+        "benchmark:compare": "npm run build && node dist/test/comparison-benchmarks.js",
+        "benchmark:readme": "npm run build && node scripts/update-benchmark-readme.mjs"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",

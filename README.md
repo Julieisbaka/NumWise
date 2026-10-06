@@ -11,6 +11,7 @@ fairness rules, and interpretation guidance.
 
 ### Comparison snapshot
 
+<!-- comparison-benchmark:start -->
 The following results were measured on September 22, 2026. Times are elapsed
 milliseconds for the listed iteration count; lower is better within the same
 table. `Max` is the slowest of seven samples. Package initialization is outside the timed region. Results vary with hardware, Node.js/V8, thermal conditions, and background activity, so run `npm run benchmark:compare` locally before making performance decisions.
@@ -94,6 +95,7 @@ rejecting an unrepresentable result. `big-integer` rows include conversion
 from Number inputs and conversion back; `mathjs` rows include its normal
 numeric dispatch. See the benchmark guide for the complete fairness and
 API-compatibility notes.
+<!-- comparison-benchmark:end -->
 
 ## What Numwise is NOT
 
