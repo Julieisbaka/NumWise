@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.2.8] - In development
+## [0.2.8] - 2026-10-06
 
 - Routed large `gcd` inputs directly to validated Euclidean reduction instead
   of applying an inapplicable unsigned-32-bit guard, and simplified the core
