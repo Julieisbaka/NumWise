@@ -4,6 +4,8 @@ Numwise provides two benchmark commands:
 
 - `npm run benchmark` runs the existing Numwise-only regression workload.
 - `npm run benchmark:compare` compares Numwise with selected third-party packages.
+- `npm run benchmark:readme` runs the comparison benchmark and updates the
+  comparison snapshot in `README.md`.
 
 The comparison command prints every metadata and result table twice: first as
 an aligned terminal table, then as copy-ready Markdown under a `Markdown:`

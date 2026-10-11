@@ -83,7 +83,8 @@ export function isPrime(value: number): boolean {
  * Divisors through 17 are checked by the caller, so this starts at 19.
  */
 function isPrimeBySmallPrimes(value: number): boolean {
-    for (const divisor of SMALL_TRIAL_PRIMES) {
+    for (let index = 0; index < SMALL_TRIAL_PRIMES.length; index++) {
+        const divisor = SMALL_TRIAL_PRIMES[index];
         if (divisor * divisor > value) {
             return true;
         }

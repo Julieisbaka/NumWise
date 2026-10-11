@@ -1,6 +1,17 @@
 # Changelog
 
-## [0.2.8] - In development
+## [0.2.9] - In development
+
+- Added `npm run benchmark:readme` to regenerate the README comparison snapshot
+  from the current comparison benchmark results. Also improved benchmark stuff.
+
+## [0.2.8] - 2026-10-06
+
+- Routed large `gcd` inputs directly to validated Euclidean reduction instead
+  of applying an inapplicable unsigned-32-bit guard, and simplified the core
+  Euclidean loop to remove redundant checks and modulo work.
+- Reduced `isPrime` trial-division overhead with indexed traversal of its
+  exact small-prime divisor table.
 
 ## [0.2.7] - 2026-10-01
 
